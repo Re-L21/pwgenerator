@@ -23,24 +23,17 @@ function GeneratePassword(len) {
 }
 
 function GetPassword() {
-    const newPass = GeneratePassword(passwordLength.value)
-    setTimeout(() => {
-        alert('Password has been generated')
-        password.value = newPass
-        
-    }, 1000);
 
+    const newPass = GeneratePassword(passwordLength.value)
+    password.value = newPass
 
 }
 
 function SavePassword() {
     
-    document.title = password.value
+    let passwordTxt = password.value
 
-    saveBtn.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`Generated Password : ${document.title} `))
+    saveBtn.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`Generated Password : ${passwordTxt} `))
     saveBtn.setAttribute('download', 'MyGeneratedPassword.txt')
-    setTimeout(() => {
-        alert('Berhasil Disimpan')
-    }, 1000)
 
 }
